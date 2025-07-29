@@ -1,6 +1,4 @@
-Claro! Aqui está a versão mais **sucinta** e **ajustada** da documentação para seu `README.md`:
 
----
 
 ## 🧪 WP Consent API Simulation with AdOpt CMP
 
