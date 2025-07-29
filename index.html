@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simulating WP Consent API events</title>
+  </head>
+  <body>
+    <h1>Simulating WP Consent API events</h1>
+    <ul id="log-list"></ul>
+
+    <script>
+      function log(message) {
+        const li = document.createElement('li')
+        li.innerHTML = `
+            <div style="display: flex; gap: 0.5rem; align-items: baseline;">
+            <span style="color: #888; font-size: 0.85rem;">[${new Date().toLocaleTimeString()}]</span>
+            <span style="color: #333;">${message}</span>
+            </div>
+        `
+        li.style.padding = '0.75rem'
+        li.style.marginBottom = '0.5rem'
+        li.style.backgroundColor = '#f9f9f9'
+        li.style.border = '1px solid #ddd'
+        li.style.borderRadius = '6px'
+        li.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.05)'
+
+        document.getElementById('log-list')?.appendChild(li)
+      }
+
+      window.wp_set_consent = function (category, status) {
+        log(`wp_set_consent('${category}', '${status}')`)
+      }
+
+      document.addEventListener('wp_consent_type_defined', () => {
+        log(`Event 'wp_consent_type_defined' received`)
+      })
+    </script>
+
+    <meta
+      name="adopt-website-id"
+      content="6c38534c-09f7-41e2-879c-fecbee050769"
+    />
+    <script
+      src="//tag.goadopt.io/injector.js?website_code=6c38534c-09f7-41e2-879c-fecbee050769"
+      class="adopt-injector"
+    ></script>
+  </body>
+</html>
