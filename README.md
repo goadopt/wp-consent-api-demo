@@ -29,7 +29,3 @@ Then open `index.html` in your browser.
 
 > This is a **test environment** intended only for development and debugging.
 > No real consent data or cookies are managed.
-
----
-
-Se quiser, posso te gerar um `index.html` pronto com todas as alterações e estilos atualizados também.
